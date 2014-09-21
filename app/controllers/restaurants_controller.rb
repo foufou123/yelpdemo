@@ -1,14 +1,12 @@
 class RestaurantsController < ApplicationController
   before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
-  # GET /restaurants
-  # GET /restaurants.json
   def index
     @restaurants = Restaurant.all
   end
 
-
   def show
+    @reviews = Review.where(restaurant_id: @restaurant.id)
   end
 
   def new
@@ -18,10 +16,8 @@ class RestaurantsController < ApplicationController
   def edit
   end
 
-
   def create
     @restaurant = Restaurant.new(restaurant_params)
-
     respond_to do |format|
       if @restaurant.save
         format.html { redirect_to @restaurant, notice: 'Restaurant was successfully created.' }
@@ -32,7 +28,6 @@ class RestaurantsController < ApplicationController
       end
     end
   end
-
 
   def update
     respond_to do |format|
@@ -45,7 +40,6 @@ class RestaurantsController < ApplicationController
       end
     end
   end
-
 
   def destroy
     @restaurant.destroy

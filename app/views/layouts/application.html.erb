@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+ 
+ <html>
   <head>
     <title>Yelpdemo</title>
      <%= render 'layouts/bootstrap' %>
@@ -10,14 +11,13 @@
   </head>
 
 
- <body>
-  <%= render 'layouts/navbar' %>
-  <div class="container-fluid" >
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <body>
+    <%= render 'layouts/navbar' %>
+      <div class="container-fluid" >
+         <p class="notice"><%= notice %></p>
+         <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
 
- <%= render 'layouts/footer' %>
-
-  </body>
+   </body>
 </html>
